@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClimateVision</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Lottie Animation Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.9.6/lottie.min.js"></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="app-container">
+    <div class="app-header">
+      <div class="logo">
+        <span class="weather-icon">🌤️</span>
+      </div>
+      <h1>ClimateVision</h1>
+      <p>Your modern weather companion</p>
+    </div>
+
+    <div class="search-box">
+      <input type="text" id="city-input" placeholder="">
+      <button id="search-btn">🔍</button>
+    </div>
+
+    <div class="weather-card">
+      <h2 id="city-name">City</h2>
+      <p id="date">Date</p>
+      <div class="temp-info">
+        <!-- Container for animated icon -->
+        <div id="weather-animation" style="width:100px;height:100px;margin:auto;"></div>
+        <h3 id="temperature">--°C</h3>
+        <p id="description">Description</p>
+      </div>
+      <div class="extra-info">
+        <p>💧 <span id="humidity">--%</span></p>
+        <p>🌬️ <span id="wind">-- m/s</span></p>
+        <p>🌡️ <span id="feels-like">--°C</span></p>
+      </div>
+      <div class="forecast" id="forecast"></div>
+    </div>
+
+    <div class="unit-toggle">
+      <button id="toggle-unit">°C / °F</button>
+    </div>
+  </div>
+</body>
+</html>

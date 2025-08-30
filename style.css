@@ -1,0 +1,170 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  transition: background 1.5s ease;
+  background: linear-gradient(135deg, #6ec1e4, #1e90ff, #63a4ff, #83eaf1);
+  background-size: 400% 400%;
+  animation: gradientFlow 20s ease infinite;
+}
+
+/* Animated gradient */
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Weather-based backgrounds */
+body.clear-day {
+  background: linear-gradient(135deg, #6ec1e4, #1e90ff, #63a4ff, #83eaf1);
+}
+body.clear-night {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364, #1e3c72);
+}
+body.clouds {
+  background: linear-gradient(135deg, #bdc3c7, #2c3e50, #4b79a1, #283e51);
+}
+body.rain {
+  background: linear-gradient(135deg, #314755, #26a0da, #2c3e50, #000428);
+}
+body.snow {
+  background: linear-gradient(135deg, #83a4d4, #b6fbff, #e0eafc, #cfdef3);
+}
+
+.app-container {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  border-radius: 30px;
+  padding: 25px;
+  width: 350px;
+  color: white;
+  text-align: center;
+  box-shadow: 0px 15px 35px rgba(0,0,0,0.3);
+}
+
+.app-header h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.app-header p {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.search-box {
+  display: flex;
+  margin: 20px 0;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: inset 0px 3px 8px rgba(0,0,0,0.2);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.search-box input {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  background: transparent;
+  color: white;
+}
+.search-box input::placeholder {
+  color: rgba(255, 255, 255, 0.85);
+  font-style: italic;
+  transition: color 0.3s ease;
+}
+.search-box:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 15px rgba(30, 144, 255, 0.6), inset 0 0 10px rgba(255,255,255,0.2);
+}
+.search-box input:focus {
+  box-shadow: 0 0 20px rgba(30, 144, 255, 0.9), inset 0 0 15px rgba(255,255,255,0.3);
+}
+
+.weather-card {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 20px;
+  margin-top: 10px;
+  box-shadow: 0px 8px 25px rgba(0,0,0,0.25);
+}
+
+.temp-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.temp-info h3 {
+  font-size: 2.4rem;
+}
+
+/* Temp pop animation */
+@keyframes popIn {
+  0% { transform: scale(0.9); opacity: 0.5; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.temp-pop {
+  animation: popIn 0.6s ease;
+}
+
+.extra-info {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 12px;
+  font-size: 0.95rem;
+}
+
+.forecast {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: 18px;
+}
+.forecast div {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  padding: 8px;
+  font-size: 0.8rem;
+  box-shadow: inset 0px 2px 5px rgba(0,0,0,0.2);
+  opacity: 0;
+}
+
+/* Forecast animations */
+@keyframes slideUp { from { opacity:0; transform:translateY(30px);} to {opacity:1; transform:translateY(0);} }
+@keyframes slideDown { from { opacity:0; transform:translateY(-30px);} to {opacity:1; transform:translateY(0);} }
+@keyframes slideLeft { from { opacity:0; transform:translateX(-30px);} to {opacity:1; transform:translateX(0);} }
+@keyframes slideRight { from { opacity:0; transform:translateX(30px);} to {opacity:1; transform:translateX(0);} }
+
+.forecast div:nth-child(1) { animation: slideLeft 0.8s ease forwards; animation-delay:0.1s;}
+.forecast div:nth-child(2) { animation: slideUp 0.8s ease forwards; animation-delay:0.3s;}
+.forecast div:nth-child(3) { animation: slideRight 0.8s ease forwards; animation-delay:0.5s;}
+.forecast div:nth-child(4) { animation: slideDown 0.8s ease forwards; animation-delay:0.7s;}
+
+.unit-toggle {
+  margin-top: 15px;
+}
+.unit-toggle button {
+  background: rgba(255, 255, 255, 0.25);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: white;
+  transition: background 0.3s ease;
+}
+.unit-toggle button:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
